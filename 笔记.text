@@ -1,0 +1,21 @@
+基于OAuth2.0的单点登录
+
+1.http://localhost:8301/clientA/common/getLoginUser
+
+2.自动跳转到 http://localhost:8300/login 输入 admin/admin
+
+3.登录成功后跳转到 http://localhost:8301/clientA/common/getLoginUser
+    返回：
+        {authorities: [{authority: "mobile"}, {authority: "salary"}],…}
+        authenticated: true
+        authorities: [{authority: "mobile"}, {authority: "salary"}]
+        clientOnly: false
+        credentials: ""
+        details: {remoteAddress: "0:0:0:0:0:0:0:1", sessionId: "FCF4967023E6717543403046CFCD071F",…}
+        name: "admin"
+        oauth2Request: {clientId: "client1", scope: ["all"], requestParameters: {client_id: "client1"}, resourceIds: ["res1"],…}
+        principal: "admin"
+        userAuthentication: {authorities: [{authority: "mobile"}, {authority: "salary"}], details: null, authenticated: true,…}
+
+4.直接访问 http://localhost:8302/clientB/common/getLoginUser
+    也能得到上面的返回 说明单点登录成功

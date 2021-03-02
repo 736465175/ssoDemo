@@ -1,0 +1,39 @@
+#客户请求distributed-security-uaa授权服务申请access_token
+server:
+  port: 8301
+  servlet:
+    context-path: /clientA
+
+spring:
+  application:
+    name: /clientA
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+
+security:
+  oauth2:
+    client:
+      client-id: client1
+      client-secret: secret
+      access-token-uri: http://localhost:8300/oauth/token
+      user-authorization-uri: http://localhost:8300/oauth/authorize
+      scope: all
+    resource:
+      token-info-uri: http://localhost:8300/oauth/check_token
+
+
+
+
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,env
+

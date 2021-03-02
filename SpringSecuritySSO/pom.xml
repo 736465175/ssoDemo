@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.lizhiqiang</groupId>
+        <artifactId>ssoDemo</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>SpringSecuritySSO</artifactId>
+    <packaging>pom</packaging>
+    <!--    我们在SpringSecuritySSO下的pom中，只负责组织模块关系-->
+    <modules>
+        <module>AuthServer</module>
+        <module>SsoClientA</module>
+        <module>SsoClientB</module>
+    </modules>
+</project>
